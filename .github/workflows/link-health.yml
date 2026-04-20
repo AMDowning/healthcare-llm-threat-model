@@ -1,106 +1,35 @@
-name: Link Health (repo + site)
+name: Link Health
 
 on:
   pull_request:
   workflow_dispatch:
-    inputs:
-      auto_fix:
-        description: "Run auto-fix (redirects/https) and open PR"
-        type: boolean
-        default: false
-  schedule:
-    - cron: "25 6 * * *"  # daily 06:25 UTC
-
-permissions:
-  contents: write
-  pages: read
-  id-token: write
-  issues: write
 
 jobs:
-  build-site:
+  build-and-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Build Jekyll
-        uses: actions/jekyll-build-pages@v1
+      - uses: ruby/setup-ruby@v1
         with:
-          source: ./
-          destination: ./_site
-      - name: Upload _site artifact
-        uses: actions/upload-artifact@v4
+          ruby-version: '3.2'
+      - name: Install Bundler 2.7.2
+        run: gem install bundler -v 2.7.2 --no-document
+      - name: Cache Ruby gems
+        uses: actions/cache@v4
         with:
-          name: site
-          path: _site
-
-  check-links:
-    needs: build-site
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Download _site
-        uses: actions/download-artifact@v4
-        with:
-          name: site
-          path: _site
-      - name: Lychee on repo sources
-        id: lychee_repo
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - name: Configure Bundler path
+        run: bundle _2.7.2_ config set path 'vendor/bundle'
+      - name: Install gems
+        run: bundle _2.7.2_ install --jobs 4 --retry 3
+      - name: Build site (production, correct baseurl)
+        env:
+          JEKYLL_ENV: production
+        run: bundle _2.7.2_ exec jekyll build --baseurl "/healthcare-llm-threat-model"
+      - name: Check links on built site
         uses: lycheeverse/lychee-action@v2
         with:
-          args: "--config .lychee.toml --verbose"
-          output: "./lychee/repo.md"
-      - name: Lychee on built site
-        id: lychee_site
-        uses: lycheeverse/lychee-action@v2
-        with:
-          args: "--config .lychee.toml --verbose ./_site/**/*.html"
-          output: "./lychee/site.md"
-      - name: Summarize results
-        run: |
-          echo "## Repo scan" >> lychee/summary.md
-          cat lychee/repo.md >> lychee/summary.md || true
-          echo -e "\n## Built site scan" >> lychee/summary.md
-          cat lychee/site.md >> lychee/summary.md || true
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        with:
-          name: link-report
-          path: lychee
-      - name: Comment broken links on PR
-        if: ${{ github.event_name == 'pull_request' && (steps.lychee_repo.outputs.exit_code != 0 || steps.lychee_site.outputs.exit_code != 0) }}
-        uses: thollander/actions-comment-pull-request@v3
-        with:
-          filePath: lychee/summary.md
-      - name: Fail if broken links remain
-        if: ${{ steps.lychee_repo.outputs.exit_code != 0 || steps.lychee_site.outputs.exit_code != 0 }}
-        run: |
-          echo "Broken links found. See artifacts/comment above."
-          exit 1
-
-  autofix-redirects:
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.auto_fix }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-      - name: Install deps
-        run: python - <<'PY'
-          import sys, subprocess
-          subprocess.check_call([sys.executable, "-m", "pip", "install", "requests"])
-        PY
-      - name: Auto-fix redirects / https
-        run: python scripts/fix_links.py
-      - name: Create PR with fixes
-        uses: peter-evans/create-pull-request@v6
-        with:
-          title: "link-health: auto-fix redirects/https"
-          commit-message: "Auto-update URLs to final destinations and https"
-          branch: "ci/link-autofix"
-          body: |
-            Automated URL normalization (redirects, https) via scripts/fix_links.py.
-            Please review remaining link failures in CI reports.
+          args: --verbose ./_site/**/*.html
