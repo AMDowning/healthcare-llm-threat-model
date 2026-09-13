@@ -3,116 +3,614 @@
     "id": "LLM01",
     "title": "Prompt Injection",
     "slug": "llm01--prompt-injection",
+    "url": "/threats/llm01--prompt-injection/",
     "summary": "Malicious prompts cause tools and connectors to leak PHI or perform unsafe actions.",
     "tags": [
       "injection",
       "workflow",
       "healthcare"
     ],
-    "updated": "2025-03-17"
+    "evidence_type": "category",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM01"
+    ],
+    "owasp_2025": [
+      "LLM01:2025"
+    ],
+    "mapping_version": "legacy-2023-24"
   },
   {
     "id": "LLM02",
     "title": "Insecure Output Handling",
     "slug": "llm02--insecure-output-handling",
+    "url": "/threats/llm02--insecure-output-handling/",
     "summary": "Applications treat LLM output as executable instructions, enabling unsafe routing or orders.",
     "tags": [
       "output",
       "workflow",
       "abuse"
     ],
-    "updated": "2025-03-17"
+    "evidence_type": "category",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM02"
+    ],
+    "owasp_2025": [
+      "LLM05:2025"
+    ],
+    "mapping_version": "legacy-2023-24"
   },
   {
     "id": "LLM03",
     "title": "Training Data Poisoning",
     "slug": "llm03--training-data-poisoning",
+    "url": "/threats/llm03--training-data-poisoning/",
     "summary": "Tainted imaging or corpora subvert clinical models and introduce backdoors.",
     "tags": [
       "data-integrity",
       "poisoning",
       "model-safety"
     ],
-    "updated": "2025-03-17"
+    "evidence_type": "category",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM03"
+    ],
+    "owasp_2025": [
+      "LLM04:2025"
+    ],
+    "mapping_version": "legacy-2023-24"
   },
   {
     "id": "LLM04",
     "title": "Model Denial of Service",
     "slug": "llm04--model-denial-of-service",
+    "url": "/threats/llm04--model-denial-of-service/",
     "summary": "Cost spikes or downtime disrupt clinical triage and imaging support.",
     "tags": [
       "availability",
       "operations"
     ],
-    "updated": "2025-03-17"
+    "evidence_type": "category",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM04"
+    ],
+    "owasp_2025": [
+      "LLM10:2025"
+    ],
+    "mapping_version": "legacy-2023-24"
   },
   {
     "id": "LLM05",
     "title": "Supply Chain Vulnerabilities",
     "slug": "llm05--supply-chain-vulnerabilities",
+    "url": "/threats/llm05--supply-chain-vulnerabilities/",
     "summary": "Managed AI services and libraries pull SSRF and unsafe deserialization into care delivery.",
     "tags": [
       "supply-chain",
       "ssrf",
       "rce"
     ],
-    "updated": "2025-03-17"
+    "evidence_type": "category",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM05"
+    ],
+    "owasp_2025": [
+      "LLM03:2025"
+    ],
+    "mapping_version": "legacy-2023-24"
   },
   {
     "id": "LLM06",
     "title": "Sensitive Information Disclosure",
     "slug": "llm06--sensitive-information-disclosure",
+    "url": "/threats/llm06--sensitive-information-disclosure/",
     "summary": "PHI leaks via connectors, logging, or post-compromise exfiltration.",
     "tags": [
       "privacy",
       "ssrf",
       "exfiltration"
     ],
-    "updated": "2025-03-17"
+    "evidence_type": "category",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM06"
+    ],
+    "owasp_2025": [
+      "LLM02:2025"
+    ],
+    "mapping_version": "legacy-2023-24"
   },
   {
     "id": "LLM07",
     "title": "Insecure Plugin / Connector Design",
     "slug": "llm07--insecure-plugin-connector-design",
+    "url": "/threats/llm07--insecure-plugin-connector-design/",
     "summary": "Over-trusted data connections behave like plugins and expose internal systems.",
     "tags": [
       "connectors",
       "ssrf",
       "governance"
     ],
-    "updated": "2025-03-17"
+    "evidence_type": "category",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM07"
+    ],
+    "owasp_2025": [
+      "LLM03:2025",
+      "LLM06:2025"
+    ],
+    "mapping_version": "legacy-2023-24"
   },
   {
     "id": "LLM08",
     "title": "Excessive Agency",
     "slug": "llm08--excessive-agency",
+    "url": "/threats/llm08--excessive-agency/",
     "summary": "Over-permissioned agents trigger real-world actions without guardrails.",
     "tags": [
       "automation",
       "governance"
     ],
-    "updated": "2025-03-17"
+    "evidence_type": "category",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM08"
+    ],
+    "owasp_2025": [
+      "LLM06:2025"
+    ],
+    "mapping_version": "legacy-2023-24"
   },
   {
     "id": "LLM09",
     "title": "Overreliance",
     "slug": "llm09--overreliance",
+    "url": "/threats/llm09--overreliance/",
     "summary": "Clinicians over-trust AI outputs without governance, amplifying harmful hallucinations.",
     "tags": [
       "human-factors",
       "hallucination"
     ],
-    "updated": "2025-03-17"
+    "evidence_type": "category",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM09"
+    ],
+    "owasp_2025": [
+      "LLM09:2025"
+    ],
+    "mapping_version": "legacy-2023-24"
   },
   {
     "id": "LLM10",
     "title": "Model Theft",
     "slug": "llm10--model-theft",
+    "url": "/threats/llm10--model-theft/",
     "summary": "Attackers steal tuned clinical models after runtime compromise or misconfiguration.",
     "tags": [
       "intellectual-property",
       "rce"
     ],
-    "updated": "2025-03-17"
+    "evidence_type": "category",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM10"
+    ],
+    "owasp_2025": [
+      "LLM03:2025"
+    ],
+    "mapping_version": "legacy-2023-24"
+  },
+  {
+    "id": "additions/2025-10/adversarial-hallucination-attacks-cds",
+    "title": "Adversarial hallucination attacks in clinical decision support",
+    "slug": "adversarial-hallucination-attacks-cds",
+    "url": "/additions/2025-10/adversarial-hallucination-attacks-cds/",
+    "summary": "Clinical decision-support LLMs can be manipulated to hallucinate unsafe facts via adversarial case tweaks.",
+    "tags": [],
+    "evidence_type": "research",
+    "updated": null,
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [],
+    "owasp_2025": [],
+    "mapping_version": "legacy-2023-24"
+  },
+  {
+    "id": "additions/2025-10/badclm-ehr-backdoor",
+    "title": "BadCLM backdoor attacks on clinical language models (EHR)",
+    "slug": "badclm-ehr-backdoor",
+    "url": "/additions/2025-10/badclm-ehr-backdoor/",
+    "summary": "Poisoned EHR fine-tuning data can implant triggerable backdoors into clinical LLM assistants.",
+    "tags": [],
+    "evidence_type": "research",
+    "updated": null,
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [],
+    "owasp_2025": [],
+    "mapping_version": "legacy-2023-24"
+  },
+  {
+    "id": "additions/2025-10/declining-safety-disclaimers",
+    "title": "Declining medical safety disclaimers in GenAI models",
+    "slug": "declining-safety-disclaimers",
+    "url": "/additions/2025-10/declining-safety-disclaimers/",
+    "summary": "Safety disclaimers in general-purpose medical chatbots are eroding over time, increasing clinical risk.",
+    "tags": [],
+    "evidence_type": "research",
+    "updated": null,
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [],
+    "owasp_2025": [],
+    "mapping_version": "legacy-2023-24"
+  },
+  {
+    "id": "additions/2025-10/patient-reidentification-diri",
+    "title": "Adversarial re-identification on de-identified clinical text (DIRI)",
+    "slug": "patient-reidentification-diri",
+    "url": "/additions/2025-10/patient-reidentification-diri/",
+    "summary": "Targeted prompts can re-identify patients from supposedly de-identified clinical narratives.",
+    "tags": [],
+    "evidence_type": "research",
+    "updated": null,
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [],
+    "owasp_2025": [],
+    "mapping_version": "legacy-2023-24"
+  },
+  {
+    "id": "additions/2025-10/radiology-report-anonymization-llms",
+    "title": "LLM-based radiology report anonymization pitfalls",
+    "slug": "radiology-report-anonymization-llms",
+    "url": "/additions/2025-10/radiology-report-anonymization-llms/",
+    "summary": "Evaluations show LLM anonymization pipelines leak residual PHI in radiology reports.",
+    "tags": [],
+    "evidence_type": "research",
+    "updated": null,
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [],
+    "owasp_2025": [],
+    "mapping_version": "legacy-2023-24"
+  },
+  {
+    "id": "additions/2025-10/training-data-poisoning-med-llms",
+    "title": "Training-data poisoning of medical LLMs",
+    "slug": "training-data-poisoning-med-llms",
+    "url": "/additions/2025-10/training-data-poisoning-med-llms/",
+    "summary": "Targeted data poisoning can implant lasting malicious behaviors in medical language models.",
+    "tags": [],
+    "evidence_type": "research",
+    "updated": null,
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [],
+    "owasp_2025": [],
+    "mapping_version": "legacy-2023-24"
+  },
+  {
+    "id": "additions/2025-10/vlm-prompt-injection-oncology",
+    "title": "Prompt injection on medical VLMs (oncology images)",
+    "slug": "vlm-prompt-injection-oncology",
+    "url": "/additions/2025-10/vlm-prompt-injection-oncology/",
+    "summary": "Oncology-focused vision-language models can be subverted by hidden prompts embedded in clinical imagery.",
+    "tags": [],
+    "evidence_type": "research",
+    "updated": null,
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [],
+    "owasp_2025": [],
+    "mapping_version": "legacy-2023-24"
+  },
+  {
+    "id": "additions/2025-10/vlm-prompt-injection-surgical-video",
+    "title": "Prompt injection on surgical video VLMs",
+    "slug": "vlm-prompt-injection-surgical-video",
+    "url": "/additions/2025-10/vlm-prompt-injection-surgical-video/",
+    "summary": "Surgical video decision-support models can be driven off course via overlaid or timed prompt injections.",
+    "tags": [],
+    "evidence_type": "research",
+    "updated": null,
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [],
+    "owasp_2025": [],
+    "mapping_version": "legacy-2023-24"
+  },
+  {
+    "id": "HC-SCN-004",
+    "title": "Agents that can act beyond their intended authority",
+    "slug": "agent-permissions-and-actions",
+    "url": "/additions/2026-09/agent-permissions-and-actions/",
+    "summary": "The consequence depends on the permissions granted, not just the quality of the generated answer. A proposed action must remain distinguishable from a completed action.",
+    "tags": [
+      "agency",
+      "authorization",
+      "workflow"
+    ],
+    "evidence_type": "scenario",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM07",
+      "LLM08"
+    ],
+    "owasp_2025": [
+      "LLM06:2025"
+    ],
+    "mapping_version": null
+  },
+  {
+    "id": "HC-INC-001",
+    "title": "Boston Scientific: disruption to supply and monitoring activation",
+    "slug": "boston-scientific-service-disruption",
+    "url": "/additions/2026-09/boston-scientific-service-disruption/",
+    "summary": "Care delivery depends on ordering, distribution, enrollment, and activation services as well as the device itself. In an AI-enabled workflow, interruption of these dependencies could leave people waiting for a service that appears available elsewhere.",
+    "tags": [
+      "availability",
+      "supply-chain",
+      "remote-monitoring"
+    ],
+    "evidence_type": "incident",
+    "updated": "2026-09-13",
+    "incident_date": "2026-08-25",
+    "source_published": "2026-09-09",
+    "legacy_categories": [
+      "LLM04",
+      "LLM05"
+    ],
+    "owasp_2025": [],
+    "mapping_version": null
+  },
+  {
+    "id": "HC-SCN-002",
+    "title": "Cross-patient retrieval and memory disclosure",
+    "slug": "cross-patient-retrieval",
+    "url": "/additions/2026-09/cross-patient-retrieval/",
+    "summary": "A fluent answer can conceal a record mix-up. Potential consequences include disclosure and decisions based on someone else’s history.",
+    "tags": [
+      "privacy",
+      "retrieval",
+      "identity"
+    ],
+    "evidence_type": "scenario",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM06",
+      "LLM07"
+    ],
+    "owasp_2025": [
+      "LLM02:2025",
+      "LLM08:2025"
+    ],
+    "mapping_version": null
+  },
+  {
+    "id": "HC-INC-002",
+    "title": "iRhythm: health data risk in third-party business applications",
+    "slug": "irhythm-third-party-data-theft",
+    "url": "/additions/2026-09/irhythm-third-party-data-theft/",
+    "summary": "Health information can travel into administrative applications outside clinical systems. Theft may enable targeted fraud, unwanted disclosure, or coercion; these are potential consequences, not outcomes established by this filing.",
+    "tags": [
+      "privacy",
+      "social-engineering",
+      "supply-chain"
+    ],
+    "evidence_type": "incident",
+    "updated": "2026-09-13",
+    "incident_date": "2026-06-08",
+    "source_published": "2026-06-15",
+    "legacy_categories": [
+      "LLM05",
+      "LLM06",
+      "LLM07"
+    ],
+    "owasp_2025": [],
+    "mapping_version": null
+  },
+  {
+    "id": "HC-CVE-002",
+    "title": "LangChain Core: file exposure through legacy prompt loading",
+    "slug": "langchain-prompt-path-traversal",
+    "url": "/additions/2026-09/langchain-prompt-path-traversal/",
+    "summary": "A healthcare application using these functions could expose accessible configuration or sensitive text files. This is a conditional deployment risk, not evidence of a healthcare incident.",
+    "tags": [
+      "privacy",
+      "supply-chain",
+      "configuration"
+    ],
+    "evidence_type": "vulnerability",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": "2026-03-26",
+    "legacy_categories": [
+      "LLM05",
+      "LLM06"
+    ],
+    "owasp_2025": [
+      "LLM02:2025",
+      "LLM03:2025"
+    ],
+    "mapping_version": null
+  },
+  {
+    "id": "HC-CVE-001",
+    "title": "LangChain: serialization injection and secret exposure",
+    "slug": "langchain-serialization-injection",
+    "url": "/additions/2026-09/langchain-serialization-injection/",
+    "summary": "In a healthcare deployment using affected paths, exposed service credentials could enable access to connected systems. A healthcare breach is not established by the advisory.",
+    "tags": [
+      "privacy",
+      "supply-chain",
+      "credentials"
+    ],
+    "evidence_type": "vulnerability",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": "2025-12-23",
+    "legacy_categories": [
+      "LLM05",
+      "LLM06"
+    ],
+    "owasp_2025": [
+      "LLM02:2025",
+      "LLM03:2025"
+    ],
+    "mapping_version": null
+  },
+  {
+    "id": "HC-SCN-001",
+    "title": "Malicious instructions in retrieved records",
+    "slug": "malicious-instructions-in-records",
+    "url": "/additions/2026-09/malicious-instructions-in-records/",
+    "summary": "A legitimate retrieval step can introduce hostile instructions into a clinical or administrative workflow. The potential consequences include disclosure and unsafe action; this card reports no observed patient event.",
+    "tags": [
+      "prompt-injection",
+      "retrieval",
+      "integrity"
+    ],
+    "evidence_type": "scenario",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM01",
+      "LLM07",
+      "LLM08"
+    ],
+    "owasp_2025": [
+      "LLM01:2025",
+      "LLM06:2025"
+    ],
+    "mapping_version": null
+  },
+  {
+    "id": "HC-SCN-003",
+    "title": "False information that persists in AI memory",
+    "slug": "persistent-memory-contamination",
+    "url": "/additions/2026-09/persistent-memory-contamination/",
+    "summary": "A one-time error can recur and spread through copied summaries. Potential harm depends on whether later users rely on it or an agent acts on it.",
+    "tags": [
+      "memory",
+      "poisoning",
+      "integrity"
+    ],
+    "evidence_type": "scenario",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM01",
+      "LLM03",
+      "LLM09"
+    ],
+    "owasp_2025": [
+      "LLM01:2025",
+      "LLM04:2025",
+      "LLM08:2025"
+    ],
+    "mapping_version": null
+  },
+  {
+    "id": "HC-INC-003",
+    "title": "Stryker: supplier disruption and rescheduled care",
+    "slug": "stryker-supply-disruption",
+    "url": "/additions/2026-09/stryker-supply-disruption/",
+    "summary": "An upstream business-system failure can delay a procedure even when the medical device is functioning. AI-supported scheduling and planning need reliable knowledge of supplier availability and a human escalation route.",
+    "tags": [
+      "availability",
+      "supply-chain",
+      "care-delays"
+    ],
+    "evidence_type": "incident",
+    "updated": "2026-09-13",
+    "incident_date": "2026-03-11",
+    "source_published": "2026-03-23",
+    "legacy_categories": [
+      "LLM04",
+      "LLM05"
+    ],
+    "owasp_2025": [],
+    "mapping_version": null
+  },
+  {
+    "id": "HC-INC-004",
+    "title": "Synnovis: service recovery, backlogs, and data notification",
+    "slug": "synnovis-recovery-and-notification",
+    "url": "/additions/2026-09/synnovis-recovery-and-notification/",
+    "summary": "Service restoration, recovery of missed care, and notification about exposed data occur on different timelines. AI systems using laboratory information need to distinguish an unavailable result from a normal result.",
+    "tags": [
+      "availability",
+      "privacy",
+      "diagnostics",
+      "historical"
+    ],
+    "evidence_type": "incident",
+    "updated": "2026-09-13",
+    "incident_date": "2024-06-03",
+    "source_published": "2025-11-10",
+    "legacy_categories": [
+      "LLM04",
+      "LLM05",
+      "LLM06"
+    ],
+    "owasp_2025": [],
+    "mapping_version": null
+  },
+  {
+    "id": "HC-SCN-005",
+    "title": "Confident answers when health information is missing",
+    "slug": "unsafe-behavior-during-outages",
+    "url": "/additions/2026-09/unsafe-behavior-during-outages/",
+    "summary": "Dependency failure can become a misleading answer rather than a visible outage. Potential consequences include delayed escalation or reliance on outdated information.",
+    "tags": [
+      "availability",
+      "misinformation",
+      "care-delays"
+    ],
+    "evidence_type": "scenario",
+    "updated": "2026-09-13",
+    "incident_date": null,
+    "source_published": null,
+    "legacy_categories": [
+      "LLM04",
+      "LLM09"
+    ],
+    "owasp_2025": [
+      "LLM09:2025"
+    ],
+    "mapping_version": null
   }
 ]

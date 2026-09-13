@@ -1,13 +1,13 @@
 ---
-layout: default
-title: Adversarial hallucination attacks in clinical decision support
-description:
-  Clinical decision-support LLMs can be manipulated to hallucinate unsafe facts via adversarial case
-  tweaks.
-permalink: /additions/2025-10/adversarial-hallucination-attacks-cds/
-redirect_from:
-  - /additions/2025-10/adversarial-hallucination-attacks-cds.md
+layout: "default"
+title: "Adversarial hallucination attacks in clinical decision support"
+description: "Clinical decision-support LLMs can be manipulated to hallucinate unsafe facts via adversarial case tweaks."
+permalink: "/additions/2025-10/adversarial-hallucination-attacks-cds/"
+redirect_from: ["/additions/2025-10/adversarial-hallucination-attacks-cds.md"]
+evidence_type: "research"
+mapping_version: "legacy-2023-24"
 ---
+
 
 # Adversarial hallucination attacks in clinical decision support
 
@@ -16,7 +16,7 @@ Planting a single fabricated detail inside a clinical vignette induces models to
 falsehood (50–82% baseline across models). Temperature tweaks didn’t help; mitigation prompts
 reduced but didn’t eliminate risk.
 
-**OWASP LLM Top-10 mapping**
+**OWASP LLM Top-10 mapping (legacy 2023–24 labels)**
 
 - LLM01: Prompt Injection (indirect)
 - LLM02: Insecure Output Handling
@@ -35,3 +35,7 @@ reduced but didn’t eliminate risk.
   [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC12318031/)
 
 **Tags:** adversarial, hallucination, cds, safety
+
+## Evidence status
+
+{% include research-evidence-note.md %}

@@ -40,7 +40,7 @@ def lint_file(path: pathlib.Path):
             stack.append(indent)
         prev_indent = indent
         if stripped.startswith('-'):
-            if not stripped.startswith('- '):
+            if stripped != '-' and not stripped.startswith('- '):
                 errors.append((lineno, 'Sequence items must have a space after "-".'))
         else:
             if ':' not in stripped:

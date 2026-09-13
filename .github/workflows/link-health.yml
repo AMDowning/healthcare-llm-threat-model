@@ -89,10 +89,11 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install deps
-        run: python - <<'PY'
+        run: |
+          python - <<'PY'
           import sys, subprocess
           subprocess.check_call([sys.executable, "-m", "pip", "install", "requests"])
-        PY
+          PY
       - name: Auto-fix redirects / https
         run: python scripts/fix_links.py
       - name: Create PR with fixes

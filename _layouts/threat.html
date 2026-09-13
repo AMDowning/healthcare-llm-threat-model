@@ -1,15 +1,19 @@
 ---
 layout: default
 ---
-<h1>{{ page.id }} — {{ page.title }}</h1>
-<p>{{ page.summary }}</p>
-{% if page.healthcare_note %}
-  <blockquote><strong>Healthcare note:</strong> {{ page.healthcare_note }}</blockquote>
-{% endif %}
-<h2 id="resources">References</h2>
-<ul>
+<p><a href="{{ '/threats/' | relative_url }}">← Browse catalog</a></p>
+<p class="eyebrow">Threat category · {{ page.id }} (legacy 2023–24)</p>
+<h1>{{ page.title | escape }}</h1>
+<p class="lead">{{ page.summary | escape }}</p>
+<p class="meta">Editorial update: {{ page.last_updated }} · OWASP cross-reference: {{ page.owasp_2025 | join: ', ' }}</p>
+<p><a href="{{ '/methodology/' | relative_url }}">How to interpret evidence and category versions</a></p>
+<div class="prose">{{ content }}</div>
+{% if page.resources.size > 0 %}
+<details><summary>Additional reference links</summary><ul>
 {% for r in page.resources %}
-  <li><a href="{{ r.url }}">{{ r.title }}</a></li>
+  {% assign first = r.url | slice: 0 %}
+  <li><a href="{% if first == '/' %}{{ r.url | relative_url }}{% else %}{{ r.url | escape }}{% endif %}">{{ r.title | escape }}</a></li>
 {% endfor %}
-</ul>
-<p class="meta">Tags: {% for t in page.tags %}<a href="{{ '/threats/?tag=' | append: t | relative_url }}">{{ t }}</a>{% if forloop.last == false %}, {% endif %}{% endfor %}</p>
+</ul></details>
+{% endif %}
+<p class="tags">{% for tag in page.tags %}<a href="{{ '/threats/' | relative_url }}?tag={{ tag | url_encode }}">{{ tag }}</a> {% endfor %}</p>

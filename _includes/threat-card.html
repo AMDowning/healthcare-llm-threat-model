@@ -1,34 +1,7 @@
-<!-- _includes/threat-card.html -->
-<article class="th-card">
-  <header class="th-card__head">
-    <span class="th-badge">{{ include.risk_id | default: page.risk_id }}</span>
-    <h3 class="th-title">
-      <a href="{{ include.url | default: page.url | relative_url }}">
-        {{ include.title | default: page.title }}
-      </a>
-    </h3>
-  </header>
-  <div class="th-meta">
-    {% assign tags = include.tags | default: page.tags %}
-    {% if tags and tags.size > 0 %}
-      <ul class="th-tags">
-        {% for t in tags %}<li>{{ t }}</li>{% endfor %}
-      </ul>
-    {% endif %}
-  </div>
-  <div class="th-body">
-    {% assign summary = include.summary | default: page.summary %}
-    {% if summary %}<p class="th-summary">{{ summary }}</p>{% endif %}
-    <dl class="th-kv">
-      <div><dt>Example</dt><dd>{% if include.example %}{{ include.example }}{% else %}{{ page.example | default: page.excerpt }}{% endif %}</dd></div>
-      <div><dt>Impact</dt><dd>{{ include.impact | default: page.impact }}</dd></div>
-      {% assign mit = include.mitigations | default: page.mitigations %}
-      {% if mit and mit.size > 0 %}
-      <div><dt>Mitigations</dt><dd><ul class="th-bullets">{% for m in mit %}<li>{{ m }}</li>{% endfor %}</ul></dd></div>
-      {% endif %}
-    </dl>
-  </div>
-  <footer class="th-card__foot">
-    <a class="th-link" href="{{ include.url | default: page.url | relative_url }}">View details →</a>
-  </footer>
+<article class="catalog-card">
+  <p class="eyebrow">{{ include.kind | capitalize }}</p>
+  <h2><a href="{{ include.url | relative_url }}">{{ include.title | escape }}</a></h2>
+  <p>{{ include.summary | escape }}</p>
+  <p class="meta">{% if include.updated %}Reviewed/updated {{ include.updated }}{% else %}Historical research summary{% endif %}</p>
+  <ul class="tag-list">{% for tag in include.tags %}<li>{{ tag | escape }}</li>{% endfor %}</ul>
 </article>

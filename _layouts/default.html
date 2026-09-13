@@ -1,30 +1,33 @@
----
-layout: nil
----
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>{{ page.title | default: site.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Keep Cayman CSS; load via relative_url so the baseurl is honored -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-  </head>
-  <body>
-    <header class="page-header" role="banner">
-      <h1 class="project-name"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-      {% if site.description %}<h2 class="project-tagline">{{ site.description }}</h2>{% endif %}
-      <nav style="margin-top: .5rem">
-        <a class="btn" href="{{ '/' | relative_url }}">Home</a>
-        <a class="btn" href="{{ '/threats/' | relative_url }}">Threats</a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title | escape }} | The Light Collective</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell">
+      <a class="brand" href="{{ '/' | relative_url }}">The Light Collective <span>Healthcare AI Threat Catalog</span></a>
+      <nav aria-label="Main navigation">
+        <a href="{{ '/threats/' | relative_url }}">Browse catalog</a>
+        <a href="{{ '/additions/2026-09/' | relative_url }}">Latest updates</a>
+        <a href="{{ '/methodology/' | relative_url }}">Evidence &amp; methods</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
+        <a href="https://github.com/AMDowning/healthcare-llm-threat-model/issues/new?template=resource-update.yml">Contribute</a>
       </nav>
-    </header>
-
-    <main id="content" class="main-content" role="main">
-      {{ content }}
-      <footer class="site-footer">
-        <span class="site-footer-credits">This site is open source.</span>
-      </footer>
-    </main>
-  </body>
+    </div>
+  </header>
+  <main id="content" class="site-shell main-content">
+    {{ content }}
+  </main>
+  <footer class="site-shell site-footer">
+    <p>Built for clinicians, security teams, developers, and community partners.</p>
+    <a href="https://lightcollective.org">The Light Collective</a> ·
+    <a href="https://github.com/AMDowning/healthcare-llm-threat-model">Source &amp; contribution history</a>
+  </footer>
+</body>
 </html>

@@ -1,62 +1,33 @@
 ---
-layout: default
-title: Healthcare LLM Threat Catalog
-description: Catalog of healthcare-relevant LLM vulnerabilities mapped to the OWASP Top-10.
+layout: "default"
+title: "About the healthcare AI threat catalog"
+permalink: "/about/"
 ---
 
-# Healthcare LLM Threat Catalog
+# Healthcare AI threat catalog
 
-**OWASP Top-10 for LLM Applications × Healthcare Context × CVEs (last two years)**  
-**Updated:** 2025-03-17
+**Cyber safety is patient safety.** This resource connects AI security weaknesses and healthcare
+cyber incidents to the practical work of protecting information and keeping care accessible.
 
-This catalog maps recent, **healthcare-relevant AI vulnerabilities (CVEs)** to the **OWASP Top-10
-for Large Language Model Applications**. It’s meant for practical use by clinicians, compliance
-leads, security teams, and community partners co-designing real health tech. It focuses on what can
-actually hurt people: data exposure, mis-routing, misdiagnosis, and operational disruption.
+It is for clinicians, security teams, developers, policy leaders, and community partners.
+Coverage includes LLMs, agents, retrieval and memory, and the services these systems depend on.
 
-> ### Scope & Selection
->
-> - _Included_: public CVEs from ~2024–2025 that are both **AI-related** and **healthcare-relevant**
->   (e.g., Azure Health Bot; MONAI imaging toolkit).
-> - _Not yet included_: model-safety failures that aren’t tracked as CVEs (e.g., bias,
->   hallucinations), but categories are listed so you can add incidents over time.
+## Start here
 
----
+- [Browse threats]({{ '/threats/' | relative_url }}) for the established category pages.
+- [Explore September 2026 additions]({{ '/additions/2026-09/' | relative_url }}) for new evidence and scenarios.
+- [Read October 2025 research]({{ '/additions/2025-10/' | relative_url }}) for earlier studies.
+- [Understand evidence labels and mappings]({{ '/methodology/' | relative_url }}).
 
-## Threat catalog
+## Scope
 
-- Browse the [full threat list]({{ '/threats/' | relative_url }}) with filters, stable slugs, and JSON index support for
-  search.
-- Each threat lives in `_threats/` with structured front matter validated in CI.
+We include documented vulnerabilities, research demonstrations, illustrative scenarios, and
+healthcare cyber incidents that reveal dependencies relevant to AI deployments. Healthcare
+incidents without established AI involvement are labeled accordingly. Potential patient harms
+are distinguished from documented consequences. CVE coverage is a curated history, not a
+complete feed, and a CVSS score is not a patient-safety score.
 
----
+Each new card includes what happened, why it matters, versioned framework mappings, mitigations,
+detection, evidence status, and a question for community partnership.
 
-## October 2025 additions (research highlights)
-
-- See the full roundup: [October 2025 Additions – High-Impact LLM Vulnerabilities in
-  Healthcare]({{ "/additions/2025-10/" | relative_url }})
-- Quick jump links by category:
-  - **Prompt injection:** [Medical VLMs
-    (oncology)]({{ "/additions/2025-10/vlm-prompt-injection-oncology/" | relative_url }}), [Surgical
-    video VLMs]({{ "/additions/2025-10/vlm-prompt-injection-surgical-video/" | relative_url }}),
-    [Adversarial hallucination attacks in
-    CDS]({{ "/additions/2025-10/adversarial-hallucination-attacks-cds/" | relative_url }})
-  - **Data poisoning & backdoors:** [Training-data poisoning of medical
-    LLMs]({{ "/additions/2025-10/training-data-poisoning-med-llms/" | relative_url }}), [BadCLM
-    backdoor in EHR models]({{ "/additions/2025-10/badclm-ehr-backdoor/" | relative_url }})
-  - **Privacy & disclosure:** [DIRI patient
-    re-identification]({{ "/additions/2025-10/patient-reidentification-diri/" | relative_url }}),
-    [Radiology report anonymization
-    pitfalls]({{ "/additions/2025-10/radiology-report-anonymization-llms/" | relative_url }})
-  - **Governance & safety messaging:** [Declining medical safety
-    disclaimers]({{ "/additions/2025-10/declining-safety-disclaimers/" | relative_url }})
-
----
-
-## How to contribute
-
-- Add new CVE rows to the relevant threat file under `_threats/` and update `assets/catalog.json`
-  via `npm run build:index`.
-- Use this schema: **CVE, Affected, Year, CVSS, Summary, Links, Mitigations, Impact**.
-- Prefer authoritative links (NVD, MSRC, GHSA) and add one clear research/explainer link when
-  helpful.
+**September update reviewed:** 2026-09-13. Earlier studies retain their evidence limitations.

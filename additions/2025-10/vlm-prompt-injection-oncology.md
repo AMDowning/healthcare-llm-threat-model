@@ -1,13 +1,13 @@
 ---
-layout: default
-title: Prompt injection on medical VLMs (oncology images)
-description:
-  Oncology-focused vision-language models can be subverted by hidden prompts embedded in clinical
-  imagery.
-permalink: /additions/2025-10/vlm-prompt-injection-oncology/
-redirect_from:
-  - /additions/2025-10/vlm-prompt-injection-oncology.md
+layout: "default"
+title: "Prompt injection on medical VLMs (oncology images)"
+description: "Oncology-focused vision-language models can be subverted by hidden prompts embedded in clinical imagery."
+permalink: "/additions/2025-10/vlm-prompt-injection-oncology/"
+redirect_from: ["/additions/2025-10/vlm-prompt-injection-oncology.md"]
+evidence_type: "research"
+mapping_version: "legacy-2023-24"
 ---
+
 
 # Prompt injection on medical VLMs (oncology images)
 
@@ -17,7 +17,7 @@ VLMs (e.g., GPT-4o class) to harmful or incorrect outputs in oncology workflowsâ
 access. This is a practical supply-chain/user-content attack vector wherever external imaging or
 patient-submitted media enters clinical systems.
 
-**OWASP LLM Top-10 mapping**
+**OWASP LLM Top-10 mapping (legacy 2023â€“24 labels)**
 
 - LLM01: Prompt Injection
 - LLM02: Insecure Output Handling
@@ -39,3 +39,7 @@ patient-submitted media enters clinical systems.
   with reproducible oncology VLM exploits and evaluation scripts.
 
 **Tags:** vlm, oncology, prompt-injection, supply-chain, patient-provided-data
+
+## Evidence status
+
+{% include research-evidence-note.md %}

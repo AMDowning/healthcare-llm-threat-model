@@ -14,7 +14,6 @@
   },
   "devDependencies": {
     "gray-matter": "^4.0.3",
-    "prettier": "^3.3.0",
-    "yamllint": "file:."
+    "prettier": "^3.3.0"
   }
 }

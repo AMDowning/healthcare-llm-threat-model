@@ -1,12 +1,13 @@
 ---
-layout: default
-title: Training-data poisoning of medical LLMs
-description:
-  Targeted data poisoning can implant lasting malicious behaviors in medical language models.
-permalink: /additions/2025-10/training-data-poisoning-med-llms/
-redirect_from:
-  - /additions/2025-10/training-data-poisoning-med-llms.md
+layout: "default"
+title: "Training-data poisoning of medical LLMs"
+description: "Targeted data poisoning can implant lasting malicious behaviors in medical language models."
+permalink: "/additions/2025-10/training-data-poisoning-med-llms/"
+redirect_from: ["/additions/2025-10/training-data-poisoning-med-llms.md"]
+evidence_type: "research"
+mapping_version: "legacy-2023-24"
 ---
+
 
 # Training-data poisoning of medical LLMs
 
@@ -14,7 +15,7 @@ redirect_from:
 Small, targeted poisoning of medical corpora can implant persistent harmful behaviors and degrade
 safety—high leverage for adversaries given open data pipelines and fine-tuning trends.
 
-**OWASP LLM Top-10 mapping**
+**OWASP LLM Top-10 mapping (legacy 2023–24 labels)**
 
 - LLM03: Training Data Poisoning
 - LLM05: Supply Chain Vulnerabilities
@@ -33,3 +34,7 @@ safety—high leverage for adversaries given open data pipelines and fine-tuning
   et al.) with poisoning pipelines and evaluation harnesses.
 
 **Tags:** poisoning, supply-chain, training, fine-tuning
+
+## Evidence status
+
+{% include research-evidence-note.md %}

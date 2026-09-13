@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<p><a href="{{ '/additions/2026-09/' | relative_url }}">← September 2026 additions</a></p>
+<p class="eyebrow">{{ page.evidence_type | capitalize }} · {{ page.record_id }}</p>
+<h1>{{ page.title | escape }}</h1>
+<dl class="record-meta">
+  {% if page.incident_date %}<div><dt>Incident identified</dt><dd>{{ page.incident_date }}</dd></div>{% endif %}
+  {% if page.source_published %}<div><dt>Cited source date</dt><dd>{{ page.source_published }}</dd></div>{% endif %}
+  <div><dt>Evidence reviewed</dt><dd>{{ page.last_reviewed }}</dd></div>
+</dl>
+<p class="notice">{% if page.evidence_type == 'incident' %}Healthcare infrastructure incident. LLM involvement is not established.{% elsif page.evidence_type == 'scenario' %}Illustrative healthcare scenario. This is not an observed incident.{% else %}Documented vulnerability. Healthcare impact depends on the deployment.{% endif %}</p>
+<p class="meta">Safeguards are recommendations, not findings about an organization’s existing controls.</p>
+<div class="prose">{{ content }}</div>
+<h2>Related catalog topics</h2><ul>
+{% for threat in site.threats %}{% if page.legacy_categories contains threat.id %}
+<li><a href="{{ threat.url | relative_url }}">{{ threat.title | escape }}</a></li>
+{% endif %}{% endfor %}
+</ul>
+<p><a href="{{ '/methodology/' | relative_url }}">Evidence and mapping policy</a></p>
