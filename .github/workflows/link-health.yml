@@ -45,18 +45,22 @@ jobs:
         with:
           name: site
           path: _site
+      - name: Validate local routes and collect public links
+        run: |
+          python3 scripts/check-site.py
+          python3 scripts/extract-public-links.py
       - name: Lychee on repo sources
         id: lychee_repo
         uses: lycheeverse/lychee-action@v2
         with:
-          args: '--config .lychee.toml --verbose --scheme https --scheme http "**/*.md"'
+          args: '--config .lychee.toml --verbose .linkcheck/repo.txt'
           fail: false
           output: "./lychee/repo.md"
       - name: Lychee on built site
         id: lychee_site
         uses: lycheeverse/lychee-action@v2
         with:
-          args: '--config .lychee.toml --verbose --scheme https --scheme http "./_site/**/*.html"'
+          args: '--config .lychee.toml --verbose .linkcheck/site.txt'
           fail: false
           output: "./lychee/site.md"
       - name: Summarize results
@@ -70,15 +74,10 @@ jobs:
         with:
           name: link-report
           path: lychee
-      - name: Comment broken links on PR
-        if: ${{ github.event_name == 'pull_request' && (steps.lychee_repo.outputs.exit_code != 0 || steps.lychee_site.outputs.exit_code != 0) }}
-        uses: thollander/actions-comment-pull-request@v3
-        with:
-          filePath: lychee/summary.md
       - name: Fail if broken links remain
         if: ${{ steps.lychee_repo.outputs.exit_code != 0 || steps.lychee_site.outputs.exit_code != 0 }}
         run: |
-          echo "Broken links found. See artifacts/comment above."
+          echo "Broken links found. See the link-report artifact."
           exit 1
 
   autofix-redirects:

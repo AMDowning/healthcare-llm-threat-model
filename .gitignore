@@ -3,3 +3,5 @@ _site/
 .bundle/
 vendor/
 node_modules/
+
+.linkcheck/
