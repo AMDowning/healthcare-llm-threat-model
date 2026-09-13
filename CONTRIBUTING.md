@@ -1,87 +1,32 @@
-# 🤝 Contributing to the Healthcare LLM Threat Model
+# Contributing
 
-First — thank you for your interest in strengthening AI safety in healthcare.  
-This project is a **living resource** designed to help healthcare organizations, developers, and
-patient advocates identify and mitigate risks from Large Language Models (LLMs) in clinical,
-research, and public health contexts.  
-Your contributions — whether technical, editorial, or research-focused — make this resource better.
+## Suggest an update without writing code
 
----
+1. Open the [resource update form](https://github.com/AMDowning/healthcare-llm-threat-model/issues/new?template=resource-update.yml).
+2. Give the source URL, incident or publication date, and the correction or addition.
+3. Explain what is documented and what is a possible healthcare consequence.
+4. Include practical safeguards and a question for community partnership when possible.
 
-## 🧭 How You Can Contribute
+The previous spreadsheet link pointed to a file absent from the repository. The issue form
+replaces that broken route and supports contributions from nontechnical reviewers.
+Do not include patient records, credentials, or private breach data.
 
-We welcome a wide range of contributions, including:
+## Edit the resource
 
-- **Adding new threats** — Identify new risk scenarios specific to healthcare LLM use.
-- **Refining existing threats** — Improve clarity, accuracy, or impact/severity ratings.
-- **Updating mitigations** — Suggest stronger safeguards or controls.
-- **Adding references** — Link to academic papers, standards, advisories, or real-world case
-  studies.
-- **Mapping to OWASP** — Improve how threats align with the
-  [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/).
+- Category pages live in `_threats/`; retain their legacy IDs and URLs.
+- Dated cards live in `additions/YYYY-MM/`. Use the September cards as examples.
+- Pin OWASP identifiers to an edition; follow [the evidence policy](docs/methodology.md).
+- Record incident date, source date, and actual review date separately.
+- CVEs need affected/fixed versions, prerequisites, score provenance, and primary advisories.
+- Do not infer a breach count from an organization’s total population.
+- Treat recommendations as proposed controls, not claims about controls already in place.
 
----
+Create a branch and submit a pull request. Run `npm run build:index`, `npm run lint`,
+`bundle exec jekyll build`, and `python3 scripts/check-site.py` before requesting review.
+The generated JSON index must match the source metadata.
 
-## 📝 Contribution Workflow
+## Link review
 
-You can contribute in **two main ways**:
-
-### 1. Edit the Spreadsheet (recommended for non-technical contributors)
-
-1. Download the latest spreadsheet:  
-   [`/data/LLM_Threat_Model_Healthcare-2.xlsx`](data/LLM_Threat_Model_Healthcare-2.xlsx)
-2. Add or update rows using the provided columns:
-   - Threat Name
-   - Category
-   - Vector
-   - Description
-   - Impact
-   - Likelihood
-   - Severity
-   - Mitigations
-   - Detection
-   - Standards
-   - References
-3. Save your changes.
-4. Submit via:
-   - Emailing the updated file to the project maintainer **OR**
-   - Opening a GitHub Issue and attaching the updated spreadsheet.
-
-### 2. Edit Markdown Directly (for GitHub users)
-
-1. Fork the repository.
-2. Create a feature branch:
-   ```bash
-   git checkout -b add-new-threat
-   ```
-
----
-
-## 🔗 Link health checks
-
-We run automated link validation in CI for both the source files and the built GitHub Pages site.
-To reproduce the checks locally:
-
-1. Ensure you have Docker available (the Makefile uses the `lycheeverse/lychee` container).
-   Alternatively, install [`lychee`](https://github.com/lycheeverse/lychee) via Cargo.
-2. (Optional) Build the site locally so `_site/` exists:
-   ```bash
-   bundle exec jekyll build
-   ```
-3. Run the link checker:
-   ```bash
-   make linkcheck
-   ```
-   The first pass scans the repository sources.
-   If `_site/` is present, a second pass scans the generated HTML for anchor issues.
-
-For obvious redirect/HTTPS fixes you can run the auto-fix helper (requires Python 3 and
-`requests`):
-
-```bash
-python -m pip install requests
-python scripts/fix_links.py
-```
-
-The script rewrites URLs in Markdown/HTML files when it safely resolves a redirect or detects an
-HTTPS endpoint for an HTTP link. Review and commit the changes before opening a pull request.
+The existing Link Health workflow checks sources and rendered pages. Some external sources
+block automated requests; investigate failures rather than deleting supporting evidence.
+Use `make linkcheck` where Docker or Lychee is installed.

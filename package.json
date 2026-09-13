@@ -10,11 +10,11 @@
     "lint:dup": "python3 scripts/find-dup-content.py",
     "lint": "npm run lint:md && npm run lint:spell && npm run lint:yaml && npm run lint:frontmatter && npm run lint:dup",
     "build": "bundle exec jekyll build",
-    "build:index": "node scripts/build-catalog-json.js"
+    "build:index": "node scripts/build-catalog-json.js",
+    "check:site": "python3 scripts/check-site.py"
   },
   "devDependencies": {
     "gray-matter": "^4.0.3",
-    "prettier": "^3.3.0",
-    "yamllint": "file:."
+    "prettier": "^3.3.0"
   }
 }

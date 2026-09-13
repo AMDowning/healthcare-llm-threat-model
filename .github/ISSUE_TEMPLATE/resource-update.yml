@@ -1,0 +1,29 @@
+name: Resource update
+description: Suggest evidence, corrections, or practical safeguards
+title: "[Resource update]: "
+body:
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change?
+      description: Name the page or describe the proposed addition. Do not include private health data.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public source and dates
+      description: Link to primary evidence. Separate the event date from the source date.
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: What is established, and what remains uncertain?
+    validations:
+      required: true
+  - type: textarea
+    id: safeguards
+    attributes:
+      label: Safeguards, detection, and community partnership
+      description: What should a team do, and what should people receiving care be able to ask?

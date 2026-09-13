@@ -1,24 +1,31 @@
 # Detect near-duplicate headings/paragraphs across Markdown files.
 import glob, os, re, itertools, difflib, sys
 def chunks(md):
-    # return (file, lineno, kind, text)
-    lines = md.splitlines()
-    out = []
-    in_list = False
-    for i, line in enumerate(lines, 1):
-        if re.match(r'^\s*#{1,6}\s+\S', line):
-            in_list = False
-            out.append(("h", i, line.strip()))
-        elif line.strip() and line.lstrip().startswith(("-", "*")):
-            in_list = True
+    # Compare complete prose paragraphs, not individual wrapped lines or card headings.
+    out, paragraph = [], []
+    start, in_code = 1, False
+    def flush():
+        if paragraph:
+            out.append(("p", start, re.sub(r'\s+', ' ', ' '.join(paragraph))))
+            paragraph.clear()
+    for i, line in enumerate(md.splitlines(), 1):
+        stripped = line.strip()
+        if stripped.startswith(('```', '~~~')):
+            flush()
+            in_code = not in_code
             continue
-        elif line.strip() and in_list and line.startswith(" "):
+        if in_code:
             continue
-        elif line.strip() and not line.lstrip().startswith((">", "```", "|", "[")):
-            in_list = False
-            out.append(("p", i, re.sub(r'\s+', ' ', line.strip())))
+        if not stripped or stripped.startswith(('#', '-', '*', '>', '|', '[', '{%', '{{', '<', '— [')):
+            flush()
+            continue
+        if not paragraph:
+            start = i
+        paragraph.append(stripped)
+    flush()
     return out
-files = sorted([p for p in glob.glob("**/*.md", recursive=True) if "/node_modules/" not in p and "/_site/" not in p])
+files = sorted([p for p in glob.glob("**/*.md", recursive=True)
+                if not set(p.split('/')) & {'node_modules', '_site', 'vendor'}])
 blobs = []
 for f in files:
     with open(f, "r", encoding="utf-8", errors="ignore") as fh:

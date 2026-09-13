@@ -1,1 +1,33 @@
+title: Healthcare AI Threat Catalog
+description: Practical evidence for protecting health information and keeping care accessible.
 url: https://amdowning.github.io
+baseurl: /healthcare-llm-threat-model
+markdown: kramdown
+plugins:
+  - jekyll-redirect-from
+collections:
+  threats:
+    output: true
+    permalink: /threats/:name/
+defaults:
+  -
+    scope:
+      path: ""
+      type: threats
+    values:
+      layout: threat
+exclude:
+  - node_modules
+  - scripts
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - Makefile
+  - wiki
+  - CONTRIBUTING.md
+  - README.md
+  - docs/deployment-plan.md
+  - docs/validation-report.md
+  - LICENSE

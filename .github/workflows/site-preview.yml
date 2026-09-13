@@ -1,0 +1,38 @@
+name: Site build and preview
+on:
+  pull_request:
+  push:
+    branches:
+      - update/healthcare-ai-cyber-2026
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Install JavaScript dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate source and generated index
+        run: |
+          npm run lint
+          npm run build:index
+          git diff --exit-code -- assets/catalog.json
+      - name: Build and check rendered site
+        run: |
+          bundle exec jekyll build --trace
+          python3 scripts/check-site.py
+      - name: Save reviewable website build
+        uses: actions/upload-artifact@v4
+        with:
+          name: healthcare-ai-site-preview
+          path: _site
+          retention-days: 14

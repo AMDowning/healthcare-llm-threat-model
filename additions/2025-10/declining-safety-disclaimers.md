@@ -1,13 +1,14 @@
 ---
-layout: default
-title: Declining medical safety disclaimers in GenAI models
-description:
-  Safety disclaimers in general-purpose medical chatbots are eroding over time, increasing clinical
-  risk.
-permalink: /additions/2025-10/declining-safety-disclaimers/
-redirect_from:
-  - /additions/2025-10/declining-safety-disclaimers.md
+layout: "default"
+title: "Declining medical safety disclaimers in GenAI models"
+description: "Safety disclaimers in general-purpose medical chatbots are eroding over time, increasing clinical risk."
+permalink: "/additions/2025-10/declining-safety-disclaimers/"
+redirect_from: ["/additions/2025-10/declining-safety-disclaimers.md"]
+evidence_type: "research"
+mapping_version: "legacy-2023-24"
+legacy_categories: ["LLM02", "LLM09"]
 ---
+
 
 # Declining medical safety disclaimers in GenAI models
 
@@ -16,7 +17,7 @@ Across 2022–2025, medical disclaimers in LLM/VLM outputs fell to ~1%. As capab
 messaging dropped—raising misuse/overreliance risk in patient-facing and clinician-adjacent
 contexts.
 
-**OWASP LLM Top-10 mapping**
+**OWASP LLM Top-10 mapping (legacy 2023–24 labels)**
 
 - LLM02: Insecure Output Handling
 - LLM09: Overreliance
@@ -34,3 +35,7 @@ contexts.
   — [PubMed](https://pubmed.ncbi.nlm.nih.gov/41038984/)
 
 **Tags:** safety, governance, disclaimers, patient-facing
+
+## Evidence status
+
+{% include research-evidence-note.md %}

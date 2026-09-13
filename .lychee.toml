@@ -1,11 +1,17 @@
-include = ["**/*.md", "**/*.html", "**/*.rst", "**/*.yml"]
-exclude_path = ["node_modules", "vendor", "tmp", "_site/assets/**"]
-# Ignore localhost and mailto, allow anchors to be checked
-exclude = ["^mailto:", "^http://localhost", "^http://127\\.0\\.0\\.1", "^https?://0\\.0\\.0\\.0"]
-max_concurrency = 20
-timeout = "20s"
-retries = 2
-# Treat these as OK (some sites block HEAD or have odd codes)
-accepted = [200, 201, 202, 203, 204, 206, 301, 302, 303, 307, 308]
-# Respect robots / rate-limits from CI
-user_agent = "lychee-ci"
+# Local routes are checked against the built site by scripts/check-site.py.
+# Remote project URLs point to production, not an unmerged preview.
+exclude_path = ['(^|/)(node_modules|vendor|tmp)/', '_site/assets/']
+exclude = ['^mailto:', '^http://localhost', '^http://127\.0\.0\.1', '^https?://0\.0\.0\.0', '^https://amdowning\.github\.io/healthcare-llm-threat-model']
+max_concurrency = 10
+timeout = 20
+max_retries = 2
+accept = ['200..=204', '206', '301', '302', '303', '307', '308']
+user_agent = 'lychee-ci'
+
+# Two primary-source endpoints block automated clients. Exact equivalents verified
+# September 13, 2026: NIH indexing of this DOI, and issuer-hosted copy of this 8-K.
+# These remaps check the equivalent source; they do not assert the original returns 200.
+remap = [
+  '^https://doi\.org/10\.1101/2025\.07\.16\.25331645$ https://pubmed.ncbi.nlm.nih.gov/40778151/',
+  '^https://www\.sec\.gov/Archives/edgar/data/1388658/000138865826000055/irtc-20260610\.htm$ https://d18rn0p25nwr6d.cloudfront.net/CIK-0001388658/e214bced-c3b7-4616-9e7e-6cb5d45c690f.pdf'
+]

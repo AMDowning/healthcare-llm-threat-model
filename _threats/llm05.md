@@ -1,25 +1,27 @@
 ---
-id: LLM05
-title: 'Supply Chain Vulnerabilities'
-slug: 'llm05--supply-chain-vulnerabilities'
-summary:
-  'Managed AI services and libraries pull SSRF and unsafe deserialization into care delivery.'
-tags: ['supply-chain', 'ssrf', 'rce']
-last_updated: '2025-03-17'
-healthcare_note:
-  'Managed AI services, model bundles, and libraries bring “classic” vulns (SSRF, unsafe
-  deserialization) into care delivery.'
-cve_window: 'last-24-months'
-resources:
-  - title: 'Medical VLM prompt injection (oncology)'
-    url: "{{ '/additions/2025-10/vlm-prompt-injection-oncology/' | relative_url }}"
-  - title: 'Training-data poisoning of medical LLMs'
-    url: "{{ '/additions/2025-10/training-data-poisoning-med-llms/' | relative_url }}"
-  - title: 'BadCLM backdoor in EHR models'
-    url: "{{ '/additions/2025-10/badclm-ehr-backdoor/' | relative_url }}"
+id: "LLM05"
+category_id: "LLM05"
+title: "Supply Chain Vulnerabilities"
+slug: "llm05--supply-chain-vulnerabilities"
+summary: "Managed AI services and libraries pull SSRF and unsafe deserialization into care delivery."
+tags: ["supply-chain","ssrf","rce"]
+last_updated: "2026-09-13"
+healthcare_note: "Managed AI services, model bundles, and libraries bring “classic” vulns (SSRF, unsafe deserialization) into care delivery."
+cve_window: "curated-history"
+resources: [{"title":"Medical VLM prompt injection (oncology)","url":"/additions/2025-10/vlm-prompt-injection-oncology/"},{"title":"Training-data poisoning of medical LLMs","url":"/additions/2025-10/training-data-poisoning-med-llms/"},{"title":"BadCLM backdoor in EHR models","url":"/additions/2025-10/badclm-ehr-backdoor/"}]
+previous_review_label: "2025-03-17"
+id_scheme: "legacy-2023-24"
+owasp_2025: ["LLM03:2025"]
+permalink: "/threats/llm05--supply-chain-vulnerabilities/"
+redirect_from: ["/threats/llm05.html"]
 ---
 
-## CVE entries (last 24 months)
+> **Evidence note:** CVE descriptions document software weaknesses. Patient-harm examples
+> are potential consequences unless an entry explicitly identifies an observed outcome.
+> Existing research citations are retained; the September review does not revalidate every paper.
+
+
+## CVE entries (curated history)
 
 | CVE                | Affected Component                                         | Year | CVSS                                         | Summary (plain English)                                                                                                                                          | Links (NVD / Vendor or Advisory / Research)                                                                                                                                                                       | Mitigations (operational + technical)                                                                                                                                                                                                                        | Impact (realistic patient-harm examples)                                                                                                                                                                                                                |
 | ------------------ | ---------------------------------------------------------- | ---: | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -36,3 +38,23 @@ resources:
   [Training-data poisoning of medical LLMs]({{ '/additions/2025-10/training-data-poisoning-med-llms/' | relative_url }})
 - EHR-specific backdoor fallout:
   [BadCLM backdoor in EHR models]({{ '/additions/2025-10/badclm-ehr-backdoor/' | relative_url }})
+## Operational safeguards
+
+- Inventory deployed dependencies, trusted artifacts, credentials, and critical upstream services.
+
+## Detection
+
+- Compare installed versions with advisories and monitor unexpected artifact or service changes.
+
+## September 2026 additions
+
+- [Boston Scientific: disruption to supply and monitoring activation]({{ '/additions/2026-09/boston-scientific-service-disruption/' | relative_url }}) — incident.
+- [iRhythm: health data risk in third-party business applications]({{ '/additions/2026-09/irhythm-third-party-data-theft/' | relative_url }}) — incident.
+- [Stryker: supplier disruption and rescheduled care]({{ '/additions/2026-09/stryker-supply-disruption/' | relative_url }}) — incident.
+- [Synnovis: service recovery, backlogs, and data notification]({{ '/additions/2026-09/synnovis-recovery-and-notification/' | relative_url }}) — incident.
+- [LangChain: serialization injection and secret exposure]({{ '/additions/2026-09/langchain-serialization-injection/' | relative_url }}) — vulnerability.
+- [LangChain Core: file exposure through legacy prompt loading]({{ '/additions/2026-09/langchain-prompt-path-traversal/' | relative_url }}) — vulnerability.
+
+## Question for community partnership
+
+Can a supplier explain how people receive care if its service fails?

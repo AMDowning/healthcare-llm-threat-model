@@ -1,11 +1,14 @@
 ---
-layout: default
-title: LLM-based radiology report anonymization pitfalls
-description: Evaluations show LLM anonymization pipelines leak residual PHI in radiology reports.
-permalink: /additions/2025-10/radiology-report-anonymization-llms/
-redirect_from:
-  - /additions/2025-10/radiology-report-anonymization-llms.md
+layout: "default"
+title: "LLM-based radiology report anonymization pitfalls"
+description: "Evaluations show LLM anonymization pipelines leak residual PHI in radiology reports."
+permalink: "/additions/2025-10/radiology-report-anonymization-llms/"
+redirect_from: ["/additions/2025-10/radiology-report-anonymization-llms.md"]
+evidence_type: "research"
+mapping_version: "legacy-2023-24"
+legacy_categories: ["LLM06", "LLM02"]
 ---
+
 
 # LLM-based radiology report anonymization pitfalls
 
@@ -14,7 +17,7 @@ Comparative evaluations show mixed de-identification performance and risk of ove
 clinical signal) or under-redaction (PHI leakage) when using general-purpose LLMs—unsafe to “drop-in
 replace” traditional anonymizers.
 
-**OWASP LLM Top-10 mapping**
+**OWASP LLM Top-10 mapping (legacy 2023–24 labels)**
 
 - LLM06: Sensitive Information Disclosure
 - LLM02: Insecure Output Handling
@@ -30,3 +33,7 @@ replace” traditional anonymizers.
 - [Automated anonymization of radiology reports: comparison of publicly available NLP and large language models (Int J Med Inform 2024)](https://pubmed.ncbi.nlm.nih.gov/39480533/)
 
 **Tags:** privacy, de-identification, radiology, PHI
+
+## Evidence status
+
+{% include research-evidence-note.md %}

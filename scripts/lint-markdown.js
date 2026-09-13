@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const IGNORED_DIRS = new Set(['node_modules', '_site']);
+const IGNORED_DIRS = new Set(['vendor', 'node_modules', '_site']);
 
 function walk(dir) {
   const out = [];

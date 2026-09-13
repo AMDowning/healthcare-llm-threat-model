@@ -1,55 +1,32 @@
 ---
 layout: default
-title: Threat catalog
+title: Browse the catalog
 permalink: /threats/
 ---
-<link rel="stylesheet" href="{{ '/assets/css/threats.css' | relative_url }}">
-<h1>Threat catalog</h1>
-<div class="th-toolbar">
-  <input id="th-search" class="th-search" type="search" placeholder="Search title, example, impact…">
-  <select id="th-risk" class="th-select">
-    <option value="">All risks</option>
-    {% assign risks = site.threats | map: 'risk_id' | uniq | sort %}
-    {% for r in risks %}
-      {% if r %}<option value="{{ r }}">{{ r }}</option>{% endif %}
-    {% endfor %}
-  </select>
-  <span class="th-count"><span id="th-count">0</span> items</span>
+<p class="eyebrow">Find evidence. Plan safeguards.</p>
+<h1>Browse the catalog</h1>
+<p>Explore threats, healthcare incidents, software vulnerabilities, research, and scenarios.</p>
+<p><a href="{{ '/methodology/' | relative_url }}">Evidence labels and legacy OWASP categories explained</a></p>
+<form class="catalog-controls" id="catalog-controls" role="search">
+  <label>Search<input id="catalog-search" type="search" name="q" placeholder="Try privacy, monitoring, memory…"></label>
+  <label>Evidence type<select id="catalog-kind" name="kind"><option value="">All types</option><option value="category">Threat category</option><option value="incident">Incident</option><option value="vulnerability">Vulnerability</option><option value="research">Research</option><option value="scenario">Scenario</option></select></label>
+  <label>Related category<select id="catalog-risk" name="risk"><option value="">All categories</option>{% for t in site.threats %}<option value="{{ t.category_id }}">{{ t.title | escape }} ({{ t.category_id }} legacy)</option>{% endfor %}</select></label>
+  <button type="reset">Clear filters</button>
+</form>
+<p id="catalog-count" role="status" aria-live="polite"></p>
+<noscript><p>All entries are shown below. Search and filters require JavaScript.</p></noscript>
+<div class="catalog-grid" id="catalog-grid">
+{% assign evidence = site.pages | where_exp: 'p', 'p.evidence_type' %}
+{% assign items = site.threats | concat: evidence %}
+{% for item in items %}
+  {% assign kind = item.evidence_type | default: 'category' %}
+  {% assign summary = item.summary | default: item.description %}
+  {% assign updated = item.last_reviewed | default: item.last_updated %}
+  {% assign risks = item.legacy_categories | join: ',' | default: item.category_id %}
+  <div class="catalog-item" data-kind="{{ kind }}" data-risk="{{ risks | escape }}" data-tags="{{ item.tags | join: ',' | escape }}" data-search="{{ item.title | append: ' ' | append: summary | downcase | escape }} {{ item.tags | join: ' ' | downcase | escape }} {{ item.cve_id | downcase | escape }} {{ item.category_id | downcase | escape }} {{ item.record_id | downcase | escape }}">
+    {% include threat-card.html kind=kind title=item.title url=item.url summary=summary updated=updated tags=item.tags %}
+  </div>
+{% endfor %}
 </div>
-<div id="th-grid" class="th-grid">
-  {% assign items = site.threats | sort: 'title' %}
-  {% for t in items %}
-    <div class="th-item"
-         data-risk="{{ t.risk_id | escape }}"
-         data-text="{{ t.title | downcase | escape }} {{ t.example | downcase | escape }} {{ t.impact | downcase | escape }} {{ t.tags | join:' ' | downcase | escape }}">
-      {% include threat-card.html
-         risk_id=t.risk_id title=t.title url=t.url
-         example=t.example impact=t.impact
-         mitigations=t.mitigations tags=t.tags summary=t.summary %}
-    </div>
-  {% endfor %}
-</div>
-<script>
-(function(){
-  const q = document.getElementById('th-search');
-  const r = document.getElementById('th-risk');
-  const grid = document.getElementById('th-grid');
-  const items = Array.from(grid.querySelectorAll('.th-item'));
-  const count = document.getElementById('th-count');
-  function apply(){
-    const text = (q.value || '').trim().toLowerCase();
-    const risk = r.value;
-    let n=0;
-    items.forEach(el=>{
-      const okRisk = !risk || (el.dataset.risk===risk);
-      const okText = !text || el.dataset.text.indexOf(text) >= 0;
-      el.style.display = (okRisk && okText) ? '' : 'none';
-      if (okRisk && okText) n++;
-    });
-    count.textContent = n;
-  }
-  q.addEventListener('input', apply);
-  r.addEventListener('change', apply);
-  apply();
-})();
-</script>
+<p id="catalog-empty" hidden>No matching entries. Try a broader term or clear the filters.</p>
+<script src="{{ '/assets/catalog.js' | relative_url }}" defer></script>

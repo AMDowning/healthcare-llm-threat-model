@@ -2,7 +2,7 @@
 import pathlib
 import sys
 
-IGNORED = {'node_modules', '_site', 'dist'}
+IGNORED = {'vendor', 'node_modules', '_site', 'dist'}
 
 
 def iter_yaml_files(root: pathlib.Path):
@@ -40,7 +40,7 @@ def lint_file(path: pathlib.Path):
             stack.append(indent)
         prev_indent = indent
         if stripped.startswith('-'):
-            if not stripped.startswith('- '):
+            if stripped != '-' and not stripped.startswith('- '):
                 errors.append((lineno, 'Sequence items must have a space after "-".'))
         else:
             if ':' not in stripped:
