@@ -2,7 +2,7 @@
 layout: default
 ---
 <p><a href="{{ '/threats/' | relative_url }}">← Browse catalog</a></p>
-<p class="eyebrow">Threat category · {{ page.id }} (legacy 2023–24)</p>
+<p class="eyebrow">Threat category · {{ page.category_id }} (legacy 2023–24)</p>
 <h1>{{ page.title | escape }}</h1>
 <p class="lead">{{ page.summary | escape }}</p>
 <p class="meta">Editorial update: {{ page.last_updated }} · OWASP cross-reference: {{ page.owasp_2025 | join: ', ' }}</p>

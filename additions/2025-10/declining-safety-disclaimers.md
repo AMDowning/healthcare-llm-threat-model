@@ -6,6 +6,7 @@ permalink: "/additions/2025-10/declining-safety-disclaimers/"
 redirect_from: ["/additions/2025-10/declining-safety-disclaimers.md"]
 evidence_type: "research"
 mapping_version: "legacy-2023-24"
+legacy_categories: ["LLM02", "LLM09"]
 ---
 
 

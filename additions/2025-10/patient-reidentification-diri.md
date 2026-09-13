@@ -6,6 +6,7 @@ permalink: "/additions/2025-10/patient-reidentification-diri/"
 redirect_from: ["/additions/2025-10/patient-reidentification-diri.md"]
 evidence_type: "research"
 mapping_version: "legacy-2023-24"
+legacy_categories: ["LLM06", "LLM02"]
 ---
 
 

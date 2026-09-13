@@ -1,5 +1,6 @@
 ---
 id: "LLM08"
+category_id: "LLM08"
 title: "Excessive Agency"
 slug: "llm08--excessive-agency"
 summary: "Over-permissioned agents trigger real-world actions without guardrails."

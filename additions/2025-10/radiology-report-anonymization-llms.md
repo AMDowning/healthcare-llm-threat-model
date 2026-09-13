@@ -6,6 +6,7 @@ permalink: "/additions/2025-10/radiology-report-anonymization-llms/"
 redirect_from: ["/additions/2025-10/radiology-report-anonymization-llms.md"]
 evidence_type: "research"
 mapping_version: "legacy-2023-24"
+legacy_categories: ["LLM06", "LLM02"]
 ---
 
 

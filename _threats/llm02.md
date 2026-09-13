@@ -1,5 +1,6 @@
 ---
 id: "LLM02"
+category_id: "LLM02"
 title: "Insecure Output Handling"
 slug: "llm02--insecure-output-handling"
 summary: "Applications treat LLM output as executable instructions, enabling unsafe routing or orders."

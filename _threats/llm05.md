@@ -1,5 +1,6 @@
 ---
 id: "LLM05"
+category_id: "LLM05"
 title: "Supply Chain Vulnerabilities"
 slug: "llm05--supply-chain-vulnerabilities"
 summary: "Managed AI services and libraries pull SSRF and unsafe deserialization into care delivery."

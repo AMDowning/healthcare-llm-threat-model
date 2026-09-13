@@ -10,7 +10,7 @@ permalink: /threats/
 <form class="catalog-controls" id="catalog-controls" role="search">
   <label>Search<input id="catalog-search" type="search" name="q" placeholder="Try privacy, monitoring, memory…"></label>
   <label>Evidence type<select id="catalog-kind" name="kind"><option value="">All types</option><option value="category">Threat category</option><option value="incident">Incident</option><option value="vulnerability">Vulnerability</option><option value="research">Research</option><option value="scenario">Scenario</option></select></label>
-  <label>Related category<select id="catalog-risk" name="risk"><option value="">All categories</option>{% for t in site.threats %}<option value="{{ t.id }}">{{ t.title | escape }} ({{ t.id }} legacy)</option>{% endfor %}</select></label>
+  <label>Related category<select id="catalog-risk" name="risk"><option value="">All categories</option>{% for t in site.threats %}<option value="{{ t.category_id }}">{{ t.title | escape }} ({{ t.category_id }} legacy)</option>{% endfor %}</select></label>
   <button type="reset">Clear filters</button>
 </form>
 <p id="catalog-count" role="status" aria-live="polite"></p>
@@ -22,8 +22,8 @@ permalink: /threats/
   {% assign kind = item.evidence_type | default: 'category' %}
   {% assign summary = item.summary | default: item.description %}
   {% assign updated = item.last_reviewed | default: item.last_updated %}
-  {% assign risks = item.legacy_categories | join: ',' | default: item.id %}
-  <div class="catalog-item" data-kind="{{ kind }}" data-risk="{{ risks | escape }}" data-tags="{{ item.tags | join: ',' | escape }}" data-search="{{ item.title | append: ' ' | append: summary | downcase | escape }} {{ item.tags | join: ' ' | downcase | escape }} {{ item.cve_id | downcase | escape }} {{ item.id | downcase | escape }} {{ item.record_id | downcase | escape }}">
+  {% assign risks = item.legacy_categories | join: ',' | default: item.category_id %}
+  <div class="catalog-item" data-kind="{{ kind }}" data-risk="{{ risks | escape }}" data-tags="{{ item.tags | join: ',' | escape }}" data-search="{{ item.title | append: ' ' | append: summary | downcase | escape }} {{ item.tags | join: ' ' | downcase | escape }} {{ item.cve_id | downcase | escape }} {{ item.category_id | downcase | escape }} {{ item.record_id | downcase | escape }}">
     {% include threat-card.html kind=kind title=item.title url=item.url summary=summary updated=updated tags=item.tags %}
   </div>
 {% endfor %}

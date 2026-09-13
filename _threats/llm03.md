@@ -1,5 +1,6 @@
 ---
 id: "LLM03"
+category_id: "LLM03"
 title: "Training Data Poisoning"
 slug: "llm03--training-data-poisoning"
 summary: "Tainted imaging or corpora subvert clinical models and introduce backdoors."

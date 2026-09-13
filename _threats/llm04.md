@@ -1,5 +1,6 @@
 ---
 id: "LLM04"
+category_id: "LLM04"
 title: "Model Denial of Service"
 slug: "llm04--model-denial-of-service"
 summary: "Cost spikes or downtime disrupt clinical triage and imaging support."

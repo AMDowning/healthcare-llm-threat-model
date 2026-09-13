@@ -6,6 +6,7 @@ permalink: "/additions/2025-10/adversarial-hallucination-attacks-cds/"
 redirect_from: ["/additions/2025-10/adversarial-hallucination-attacks-cds.md"]
 evidence_type: "research"
 mapping_version: "legacy-2023-24"
+legacy_categories: ["LLM01", "LLM02", "LLM09"]
 ---
 
 

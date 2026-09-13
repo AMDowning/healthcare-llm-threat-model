@@ -1,5 +1,6 @@
 ---
 id: "LLM10"
+category_id: "LLM10"
 title: "Model Theft"
 slug: "llm10--model-theft"
 summary: "Attackers steal tuned clinical models after runtime compromise or misconfiguration."

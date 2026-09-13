@@ -13,7 +13,7 @@ layout: default
 <p class="meta">Safeguards are recommendations, not findings about an organization’s existing controls.</p>
 <div class="prose">{{ content }}</div>
 <h2>Related catalog topics</h2><ul>
-{% for threat in site.threats %}{% if page.legacy_categories contains threat.id %}
+{% for threat in site.threats %}{% if page.legacy_categories contains threat.category_id %}
 <li><a href="{{ threat.url | relative_url }}">{{ threat.title | escape }}</a></li>
 {% endif %}{% endfor %}
 </ul>

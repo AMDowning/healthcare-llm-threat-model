@@ -248,7 +248,11 @@
     "updated": null,
     "incident_date": null,
     "source_published": null,
-    "legacy_categories": [],
+    "legacy_categories": [
+      "LLM01",
+      "LLM02",
+      "LLM09"
+    ],
     "owasp_2025": [],
     "mapping_version": "legacy-2023-24"
   },
@@ -264,7 +268,10 @@
     "updated": null,
     "incident_date": null,
     "source_published": null,
-    "legacy_categories": [],
+    "legacy_categories": [
+      "LLM03",
+      "LLM05"
+    ],
     "owasp_2025": [],
     "mapping_version": "legacy-2023-24"
   },
@@ -280,7 +287,10 @@
     "updated": null,
     "incident_date": null,
     "source_published": null,
-    "legacy_categories": [],
+    "legacy_categories": [
+      "LLM02",
+      "LLM09"
+    ],
     "owasp_2025": [],
     "mapping_version": "legacy-2023-24"
   },
@@ -296,7 +306,10 @@
     "updated": null,
     "incident_date": null,
     "source_published": null,
-    "legacy_categories": [],
+    "legacy_categories": [
+      "LLM06",
+      "LLM02"
+    ],
     "owasp_2025": [],
     "mapping_version": "legacy-2023-24"
   },
@@ -312,7 +325,10 @@
     "updated": null,
     "incident_date": null,
     "source_published": null,
-    "legacy_categories": [],
+    "legacy_categories": [
+      "LLM06",
+      "LLM02"
+    ],
     "owasp_2025": [],
     "mapping_version": "legacy-2023-24"
   },
@@ -328,7 +344,10 @@
     "updated": null,
     "incident_date": null,
     "source_published": null,
-    "legacy_categories": [],
+    "legacy_categories": [
+      "LLM03",
+      "LLM05"
+    ],
     "owasp_2025": [],
     "mapping_version": "legacy-2023-24"
   },
@@ -344,7 +363,11 @@
     "updated": null,
     "incident_date": null,
     "source_published": null,
-    "legacy_categories": [],
+    "legacy_categories": [
+      "LLM01",
+      "LLM02",
+      "LLM05"
+    ],
     "owasp_2025": [],
     "mapping_version": "legacy-2023-24"
   },
@@ -360,7 +383,10 @@
     "updated": null,
     "incident_date": null,
     "source_published": null,
-    "legacy_categories": [],
+    "legacy_categories": [
+      "LLM01",
+      "LLM02"
+    ],
     "owasp_2025": [],
     "mapping_version": "legacy-2023-24"
   },

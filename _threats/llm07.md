@@ -1,5 +1,6 @@
 ---
 id: "LLM07"
+category_id: "LLM07"
 title: "Insecure Plugin / Connector Design"
 slug: "llm07--insecure-plugin-connector-design"
 summary: "Over-trusted data connections behave like plugins and expose internal systems."

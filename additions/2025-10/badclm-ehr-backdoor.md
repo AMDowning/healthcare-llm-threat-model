@@ -6,6 +6,7 @@ permalink: "/additions/2025-10/badclm-ehr-backdoor/"
 redirect_from: ["/additions/2025-10/badclm-ehr-backdoor.md"]
 evidence_type: "research"
 mapping_version: "legacy-2023-24"
+legacy_categories: ["LLM03", "LLM05"]
 ---
 
 

@@ -1,5 +1,6 @@
 ---
 id: "LLM06"
+category_id: "LLM06"
 title: "Sensitive Information Disclosure"
 slug: "llm06--sensitive-information-disclosure"
 summary: "PHI leaks via connectors, logging, or post-compromise exfiltration."

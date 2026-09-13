@@ -16,6 +16,7 @@ class Page(HTMLParser):
         self.links = []
         self.ids = set()
         self.items = []
+        self.options = []
         self.feed(text)
 
     def handle_starttag(self, tag, attrs):
@@ -28,6 +29,8 @@ class Page(HTMLParser):
             value = a.get('href') or a.get('src')
             if value:
                 self.links.append(value)
+        if tag == 'option' and a.get('value', '').startswith('LLM'):
+            self.options.append(a['value'])
         if 'catalog-item' in a.get('class', '').split():
             self.items.append(a)
 
@@ -68,6 +71,13 @@ catalog_path = ROOT / 'threats/index.html'
 catalog = pages.get(catalog_path)
 if not catalog or len(catalog.items) != len(index):
     errors.append('Rendered catalog count does not match JSON index')
+if catalog:
+    if set(catalog.options) != {f'LLM{i:02}' for i in range(1, 11)}:
+        errors.append('Category filter must use the ten legacy IDs, not Jekyll document IDs')
+    for item in catalog.items:
+        for risk in item.get('data-risk', '').split(','):
+            if risk and risk not in catalog.options:
+                errors.append(f'Unknown rendered category filter: {risk}')
 expected = {'category': 10, 'incident': 4, 'vulnerability': 2, 'scenario': 5, 'research': 8}
 for kind, count in expected.items():
     actual = sum(r['evidence_type'] == kind for r in index)

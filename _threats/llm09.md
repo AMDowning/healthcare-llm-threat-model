@@ -1,5 +1,6 @@
 ---
 id: "LLM09"
+category_id: "LLM09"
 title: "Overreliance"
 slug: "llm09--overreliance"
 summary: "Clinicians over-trust AI outputs without governance, amplifying harmful hallucinations."

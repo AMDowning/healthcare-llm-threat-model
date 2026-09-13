@@ -1,5 +1,6 @@
 ---
 id: "LLM01"
+category_id: "LLM01"
 title: "Prompt Injection"
 slug: "llm01--prompt-injection"
 summary: "Malicious prompts cause tools and connectors to leak PHI or perform unsafe actions."
