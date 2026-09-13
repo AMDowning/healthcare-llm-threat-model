@@ -23,7 +23,7 @@ permalink: /threats/
   {% assign summary = item.summary | default: item.description %}
   {% assign updated = item.last_reviewed | default: item.last_updated %}
   {% assign risks = item.legacy_categories | join: ',' | default: item.id %}
-  <div class="catalog-item" data-kind="{{ kind }}" data-risk="{{ risks | escape }}" data-tags="{{ item.tags | join: ',' | escape }}" data-search="{{ item.title | append: ' ' | append: summary | downcase | escape }} {{ item.tags | join: ' ' | downcase | escape }} {{ item.content | strip_html | normalize_whitespace | downcase | escape }}">
+  <div class="catalog-item" data-kind="{{ kind }}" data-risk="{{ risks | escape }}" data-tags="{{ item.tags | join: ',' | escape }}" data-search="{{ item.title | append: ' ' | append: summary | downcase | escape }} {{ item.tags | join: ' ' | downcase | escape }} {{ item.cve_id | downcase | escape }} {{ item.id | downcase | escape }} {{ item.record_id | downcase | escape }}">
     {% include threat-card.html kind=kind title=item.title url=item.url summary=summary updated=updated tags=item.tags %}
   </div>
 {% endfor %}

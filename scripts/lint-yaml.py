@@ -2,7 +2,7 @@
 import pathlib
 import sys
 
-IGNORED = {'node_modules', '_site', 'dist'}
+IGNORED = {'vendor', 'node_modules', '_site', 'dist'}
 
 
 def iter_yaml_files(root: pathlib.Path):

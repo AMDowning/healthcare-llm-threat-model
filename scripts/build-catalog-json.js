@@ -13,7 +13,7 @@ const rows = [...walk('_threats'), ...walk('additions')].flatMap(p => {
   return [{id:fm.record_id || fm.id || p.replace(/\.md$/, ''), title:fm.title,
     slug:fm.slug || path.basename(p, '.md'), url:fm.permalink,
     summary:fm.summary || fm.description || '', tags:fm.tags || [],
-    evidence_type:fm.evidence_type || 'category', updated:fm.last_reviewed || fm.last_updated || null,
+    evidence_type:fm.evidence_type || 'category', cve_id:fm.cve_id || null, updated:fm.last_reviewed || fm.last_updated || null,
     incident_date:fm.incident_date || null, source_published:fm.source_published || null,
     legacy_categories:fm.legacy_categories || (fm.id ? [fm.id] : []),
     owasp_2025:fm.owasp_2025 || [], mapping_version:fm.mapping_version || fm.id_scheme || null}];

@@ -5,6 +5,7 @@ description: "A healthcare application using these functions could expose access
 permalink: "/additions/2026-09/langchain-prompt-path-traversal/"
 record_id: "HC-CVE-002"
 evidence_type: "vulnerability"
+cve_id: "CVE-2026-34070"
 last_reviewed: "2026-09-13"
 tags: ["privacy","supply-chain","configuration"]
 legacy_categories: ["LLM05","LLM06"]

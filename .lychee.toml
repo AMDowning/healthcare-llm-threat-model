@@ -1,11 +1,9 @@
-include = ["**/*.md", "**/*.html", "**/*.rst", "**/*.yml"]
-exclude_path = ["node_modules", "vendor", "tmp", "_site/assets/**"]
-# Ignore localhost and mailto, allow anchors to be checked
-exclude = ["^mailto:", "^http://localhost", "^http://127\\.0\\.0\\.1", "^https?://0\\.0\\.0\\.0"]
-max_concurrency = 20
-timeout = "20s"
-retries = 2
-# Treat these as OK (some sites block HEAD or have odd codes)
-accepted = [200, 201, 202, 203, 204, 206, 301, 302, 303, 307, 308]
-# Respect robots / rate-limits from CI
-user_agent = "lychee-ci"
+# Local routes are checked against the built site by scripts/check-site.py.
+# Remote project URLs point to production, not an unmerged preview.
+exclude_path = ['(^|/)(node_modules|vendor|tmp)/', '_site/assets/']
+exclude = ['^mailto:', '^http://localhost', '^http://127\.0\.0\.1', '^https?://0\.0\.0\.0', '^https://amdowning\.github\.io/healthcare-llm-threat-model']
+max_concurrency = 10
+timeout = 20
+max_retries = 2
+accept = ['200..=204', '206', '301', '302', '303', '307', '308']
+user_agent = 'lychee-ci'

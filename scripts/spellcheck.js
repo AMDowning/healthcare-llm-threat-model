@@ -11,7 +11,7 @@ const BAD_PATTERNS = [
   { re: /\bseperate\b/i, message: 'Did you mean "separate"?' }
 ];
 
-const IGNORED_DIRS = new Set(['node_modules', '_site', 'dist']);
+const IGNORED_DIRS = new Set(['vendor', 'node_modules', '_site', 'dist']);
 
 function walk(dir) {
   const out = [];

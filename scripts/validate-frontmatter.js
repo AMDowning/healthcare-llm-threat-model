@@ -1,7 +1,7 @@
 const fs = require('fs'); const path = require('path'); const matter = require('gray-matter');
 const required = ["id","title","slug","summary","tags","last_updated"];
 function walk(dir){return fs.readdirSync(dir).flatMap(f=>{const p=path.join(dir,f);return fs.statSync(p).isDirectory()?walk(p):[p];});}
-const md = walk(".").filter(p=>p.endsWith(".md") && !p.includes("node_modules") && !p.includes("_site"));
+const md = walk(".").filter(p=>p.endsWith(".md") && !p.includes("node_modules") && !p.includes("_site") && !p.includes("vendor"));
 let ok = true;
 for (const file of md) {
   const fm = matter.read(file).data || {};

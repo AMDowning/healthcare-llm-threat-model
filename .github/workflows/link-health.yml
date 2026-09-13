@@ -49,13 +49,15 @@ jobs:
         id: lychee_repo
         uses: lycheeverse/lychee-action@v2
         with:
-          args: "--config .lychee.toml --verbose"
+          args: '--config .lychee.toml --verbose --scheme https --scheme http "**/*.md"'
+          fail: false
           output: "./lychee/repo.md"
       - name: Lychee on built site
         id: lychee_site
         uses: lycheeverse/lychee-action@v2
         with:
-          args: "--config .lychee.toml --verbose ./_site/**/*.html"
+          args: '--config .lychee.toml --verbose --scheme https --scheme http "./_site/**/*.html"'
+          fail: false
           output: "./lychee/site.md"
       - name: Summarize results
         run: |

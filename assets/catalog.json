@@ -11,6 +11,7 @@
       "healthcare"
     ],
     "evidence_type": "category",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -34,6 +35,7 @@
       "abuse"
     ],
     "evidence_type": "category",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -57,6 +59,7 @@
       "model-safety"
     ],
     "evidence_type": "category",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -79,6 +82,7 @@
       "operations"
     ],
     "evidence_type": "category",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -102,6 +106,7 @@
       "rce"
     ],
     "evidence_type": "category",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -125,6 +130,7 @@
       "exfiltration"
     ],
     "evidence_type": "category",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -148,6 +154,7 @@
       "governance"
     ],
     "evidence_type": "category",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -171,6 +178,7 @@
       "governance"
     ],
     "evidence_type": "category",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -193,6 +201,7 @@
       "hallucination"
     ],
     "evidence_type": "category",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -215,6 +224,7 @@
       "rce"
     ],
     "evidence_type": "category",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -234,6 +244,7 @@
     "summary": "Clinical decision-support LLMs can be manipulated to hallucinate unsafe facts via adversarial case tweaks.",
     "tags": [],
     "evidence_type": "research",
+    "cve_id": null,
     "updated": null,
     "incident_date": null,
     "source_published": null,
@@ -249,6 +260,7 @@
     "summary": "Poisoned EHR fine-tuning data can implant triggerable backdoors into clinical LLM assistants.",
     "tags": [],
     "evidence_type": "research",
+    "cve_id": null,
     "updated": null,
     "incident_date": null,
     "source_published": null,
@@ -264,6 +276,7 @@
     "summary": "Safety disclaimers in general-purpose medical chatbots are eroding over time, increasing clinical risk.",
     "tags": [],
     "evidence_type": "research",
+    "cve_id": null,
     "updated": null,
     "incident_date": null,
     "source_published": null,
@@ -279,6 +292,7 @@
     "summary": "Targeted prompts can re-identify patients from supposedly de-identified clinical narratives.",
     "tags": [],
     "evidence_type": "research",
+    "cve_id": null,
     "updated": null,
     "incident_date": null,
     "source_published": null,
@@ -294,6 +308,7 @@
     "summary": "Evaluations show LLM anonymization pipelines leak residual PHI in radiology reports.",
     "tags": [],
     "evidence_type": "research",
+    "cve_id": null,
     "updated": null,
     "incident_date": null,
     "source_published": null,
@@ -309,6 +324,7 @@
     "summary": "Targeted data poisoning can implant lasting malicious behaviors in medical language models.",
     "tags": [],
     "evidence_type": "research",
+    "cve_id": null,
     "updated": null,
     "incident_date": null,
     "source_published": null,
@@ -324,6 +340,7 @@
     "summary": "Oncology-focused vision-language models can be subverted by hidden prompts embedded in clinical imagery.",
     "tags": [],
     "evidence_type": "research",
+    "cve_id": null,
     "updated": null,
     "incident_date": null,
     "source_published": null,
@@ -339,6 +356,7 @@
     "summary": "Surgical video decision-support models can be driven off course via overlaid or timed prompt injections.",
     "tags": [],
     "evidence_type": "research",
+    "cve_id": null,
     "updated": null,
     "incident_date": null,
     "source_published": null,
@@ -358,6 +376,7 @@
       "workflow"
     ],
     "evidence_type": "scenario",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -382,6 +401,7 @@
       "remote-monitoring"
     ],
     "evidence_type": "incident",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": "2026-08-25",
     "source_published": "2026-09-09",
@@ -404,6 +424,7 @@
       "identity"
     ],
     "evidence_type": "scenario",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -429,6 +450,7 @@
       "supply-chain"
     ],
     "evidence_type": "incident",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": "2026-06-08",
     "source_published": "2026-06-15",
@@ -452,6 +474,7 @@
       "configuration"
     ],
     "evidence_type": "vulnerability",
+    "cve_id": "CVE-2026-34070",
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": "2026-03-26",
@@ -477,6 +500,7 @@
       "credentials"
     ],
     "evidence_type": "vulnerability",
+    "cve_id": "CVE-2025-68664",
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": "2025-12-23",
@@ -502,6 +526,7 @@
       "integrity"
     ],
     "evidence_type": "scenario",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -528,6 +553,7 @@
       "integrity"
     ],
     "evidence_type": "scenario",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,
@@ -555,6 +581,7 @@
       "care-delays"
     ],
     "evidence_type": "incident",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": "2026-03-11",
     "source_published": "2026-03-23",
@@ -578,6 +605,7 @@
       "historical"
     ],
     "evidence_type": "incident",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": "2024-06-03",
     "source_published": "2025-11-10",
@@ -601,6 +629,7 @@
       "care-delays"
     ],
     "evidence_type": "scenario",
+    "cve_id": null,
     "updated": "2026-09-13",
     "incident_date": null,
     "source_published": null,

@@ -5,6 +5,7 @@ description: "In a healthcare deployment using affected paths, exposed service c
 permalink: "/additions/2026-09/langchain-serialization-injection/"
 record_id: "HC-CVE-001"
 evidence_type: "vulnerability"
+cve_id: "CVE-2025-68664"
 last_reviewed: "2026-09-13"
 tags: ["privacy","supply-chain","credentials"]
 legacy_categories: ["LLM05","LLM06"]
